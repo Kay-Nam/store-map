@@ -3520,7 +3520,12 @@ JB의 모회사)`,
         locations.forEach(loc => {
     let icon = null;
 
-    if (/(Los Angeles| LA[, ]| LA$)/.test(loc.address)) {
+    // 주소를 소문자로 변환
+    const address = loc.address.toLowerCase();
+
+    // LA 지역 판별 조건: "los angeles" 또는 " la" 또는 "la," 또는 "la " 포함 여부
+    if (/(los angeles| la[ ,]| la$)/.test(address)) {
+        // LA 지역: 녹색 아이콘
         icon = L.icon({
             iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x-green.png',
             iconSize: [25, 41],
@@ -3530,6 +3535,7 @@ JB의 모회사)`,
             shadowSize: [41, 41]
         });
     } else {
+        // 기본 파란색 아이콘
         icon = L.icon({
             iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
             iconSize: [25, 41],
