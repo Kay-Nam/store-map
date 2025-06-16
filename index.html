@@ -3522,8 +3522,8 @@ JB의 모회사)`,
 
     const address = loc.address.toLowerCase(); // 대소문자 무시 위해 소문자로 변환
 
-  if (name.startsWith("h mart")) {
-        // 이름이 'H MART'로 시작하면 빨간 마커
+ if (name.includes("h mart")) {
+        // 이름에 'H MART' 포함되면 빨간 마커
         icon = L.icon({
             iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
             shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
